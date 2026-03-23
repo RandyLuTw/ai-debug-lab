@@ -2,13 +2,29 @@ def add(a, b):
     return a + b
 
 
-first_input = input("請輸入第一個數字: ")
-second_input = input("請輸入第二個數字: ")
+def subtract(a, b):
+    return a - b
 
-try:
-    first_number = float(first_input)
-    second_number = float(second_input)
-    result = add(first_number, second_number)
-    print("相加結果是:", result)
-except ValueError:
-    print("錯誤：請輸入有效的數字。")
+
+def main():
+    try:
+        a = float(input("請輸入第一個數字: "))
+        b = float(input("請輸入第二個數字: "))
+    except ValueError:
+        print("錯誤：請輸入有效的數字。")
+        return
+
+    operation = input("請選擇運算（+ 或 -）: ").strip()
+
+    if operation == "+":
+        result = add(a, b)
+        print("加法結果是:", result)
+    elif operation == "-":
+        result = subtract(a, b)
+        print("減法結果是:", result)
+    else:
+        print("錯誤：請輸入 + 或 -。")
+
+
+if __name__ == "__main__":
+    main()
